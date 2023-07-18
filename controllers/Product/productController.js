@@ -138,9 +138,15 @@ const combinedDatactrl = async (req, res) => {
   try {
     const { month } = req.query;
 
-    const statistics = await axios.get(`/api/statistics?month=${month}`);
-    const barChart = await axios.get(`/api/bar-chart?month=${month}`);
-    const pieChart = await axios.get(`/api/pie-chart?month=${month}`);
+    const statistics = await axios.get(
+      `${process.env.env}/api/statistics?month=${month}`
+    );
+    const barChart = await axios.get(
+      `${process.env.env}/api/bar-chart?month=${month}`
+    );
+    const pieChart = await axios.get(
+      `${process.env.env}/api/pie-chart?month=${month}`
+    );
 
     const combinedData = {
       statistics: statistics.data,
